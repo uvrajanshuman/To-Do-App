@@ -73,9 +73,10 @@ class TaskActivity : AppCompatActivity(),View.OnClickListener {
     }
 
     private fun saveToDO() {
+        //TODO: validate inputs
         val category = spinner.selectedItem.toString()
-        val title = taskInputLayout.editText?.text.toString()
-        val task = titleInputLayout.editText?.text.toString()
+        val task = taskInputLayout.editText?.text.toString()
+        val title = titleInputLayout.editText?.text.toString()
         GlobalScope.launch(Dispatchers.IO) {
             var id = db.toDoDao().insertTask(
                 ToDoModel(
